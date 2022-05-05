@@ -8,6 +8,12 @@ function [I] = Simpson(x, y)
 if length(x)~= length(y)
     error('Input vectors need to be the same length')
 end
+xcheck=linspace(x(1),x(end),length(x));
+for k=1:length(x)
+    if x(k)~=xcheck(k)
+        error('X input is not evenly spaced')
+    end
+end
 e_check=rem(length(x)-1,2);
 I=0;
 h=(x(end)-x(1,1));
